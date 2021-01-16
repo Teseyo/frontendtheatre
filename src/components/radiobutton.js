@@ -8,11 +8,6 @@ import Idcom from './id';
 
 const RadioButton=((props) => {
     
-    function f () {
-        Idcom()
-        
-    }
-
     const { time, ids } = props
     return (
         <div >

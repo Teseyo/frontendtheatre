@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Radiobutton from '../components/radiobutton.js'
 import Img from '../img/img.svg'
 import './card.css'
-
+import { Link } from 'react-router-dom'
 
 const Box = styled.div`
     max-width: 80%;
@@ -22,7 +22,7 @@ const Box = styled.div`
     padding-bottom: 5em;
     padding-left: 3em;
     padding-right: 3em;
-    @media screen and (max-device-width: 1200px) {
+    @media screen and (max-device-width: 700px) {
         flex-direction: column;
     }
 `
@@ -60,10 +60,6 @@ const timedata=[
         ids:"1",
         time:"04.01 17:00",
     },
-    {
-        ids:"2",
-        time:"05.01 17:00",
-    },
     
 ]
 
@@ -88,11 +84,14 @@ const Description = styled.div`
 `
 
 const Button = styled.button`
+    font-family: Jost;
+    font-size: 18px;
     background: #359EFF;
     border-radius: 22.5px;
     padding: 15px 30px;
     border: none;
     outline: none;
+    color:white;
     &:hover {
         cursor: pointer;
     }
@@ -104,7 +103,9 @@ const ContentBox = styled.div`
 
 const Card=((props) => {
 
-    const { subtitle, title, name, description, id, time } = props
+    const { subtitle, title, name, description, id, time, Linku } = props
+    const Linke = '/View/'
+    const Linkp = Linke+Linku;
     return (
         <Content>
             
@@ -115,12 +116,13 @@ const Card=((props) => {
                     <Subtitle>{subtitle}</Subtitle>
                     <Title>{title}</Title>
                     {/* <img className='boxImg1' src={Img} alt=""/> */}
-                    <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap'}}>{timedata.map((item) => { return( <Radiobutton id={id} time={item.time}/> ) })}</div>
+                    <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap'}}>{timedata.map((item) => { return( <Radiobutton ids={id} time={time}/> ) })}</div>
                     <Name><p>{name}</p></Name>
                     <Description><p>{description}</p></Description>
-                    <Button>Смотреть</Button>
+                    {/* <Link to='/View' style={{textDecoration:'none'}}><Button>Смотреть</Button></Link> */}
+                    <a href={Linkp}style={{textDecoration:'none'}}><Button>Смотреть</Button></a>
                 </ContentBox>
-                {/* <img className='boxImg2' src={Img} alt=""/> */}
+                <img  src={Img} alt="" />
                 
             </Box>
         </Content>

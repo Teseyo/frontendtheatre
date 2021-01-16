@@ -1,11 +1,8 @@
-/* .boxImg1{
-    width: 45vw;
-    height: 45vh;
-
-} */
-/* 
 .boxImg2{
-    width: 45vw;
-    height: 45vh;
-
-} */
+    /* width: 45vw;
+    height: 45vh; */
+    @media only screen and (max-width: 900px) {
+        display: none;
+        height: 0 !important;
+    }
+}
